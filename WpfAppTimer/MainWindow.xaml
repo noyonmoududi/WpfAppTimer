@@ -1,0 +1,39 @@
+﻿<Window x:Class="WpfAppTimer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppTimer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <!--<ListBox Height="327" HorizontalAlignment="Left" Margin="18,31,0,0" 
+                 Name="listBox1" VerticalAlignment="Top" Width="705" />-->
+        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="0,10,0,0" Width="Auto">
+            <DataGrid Name="DataGrid1"  Width="756" Height="374" ItemsSource="{Binding}" 
+                              HorizontalAlignment="Center" AutoGenerateColumns="False" 
+                              CanUserAddRows="False"
+                              ScrollViewer.CanContentScroll="True" 
+                              ScrollViewer.VerticalScrollBarVisibility="Auto"
+                              ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="TICKER" Width="Auto" Binding="{Binding Mode=TwoWay, Path=Ticker}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="NAME" Width="Auto" Binding="{Binding Mode=TwoWay, Path=Name}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="BALANCE" Width="Auto" Binding="{Binding Mode=TwoWay, Path=Balance}" IsReadOnly="True" />
+                    <DataGridTextColumn Header="ADDRESS" Width="200" Binding="{Binding Mode=TwoWay, Path=Address}" IsReadOnly="True" />
+                    <DataGridTemplateColumn Header="Actions" Width="Auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Background="OrangeRed" Name="btn_Delete_Token">Delete</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
